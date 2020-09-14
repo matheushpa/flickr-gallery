@@ -10,6 +10,11 @@ import UIKit
 
 struct Photos: Codable {
     
+    var photos: PhotoList?
+}
+
+struct PhotoList: Codable {
+    
     var page: Int?
     var pages: Int?
     var perpage: Int?
@@ -25,7 +30,4 @@ struct Photo: Codable {
     var server: String?
     var farm: Int?
     var title: String?
-    var isPublic: Int?
-    var isFriend: Int?
-    var isFamily: Int?
 }
