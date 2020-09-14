@@ -10,6 +10,8 @@ import UIKit
 
 class FlickrViewController: UIViewController {
     
+    var searchViewModel: SearchViewModel!
+    
     private lazy var collectionViewLayout: UICollectionViewFlowLayout = {
         let collectionViewLayout = UICollectionViewFlowLayout()
         collectionViewLayout.scrollDirection = .vertical
@@ -32,6 +34,8 @@ class FlickrViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .white
         setupCollectionViewLayout()
+        searchViewModel = SearchViewModel()
+        searchViewModel.getPhotosByTerm(term: "kitten")
     }
     
     // MARK: - Setup methods
