@@ -11,6 +11,7 @@ import UIKit
 class FlickrViewController: UIViewController {
     
     var searchViewModel: SearchViewModel!
+    var loadingView: LoadingView!
     
     private lazy var collectionViewLayout: UICollectionViewFlowLayout = {
         let collectionViewLayout = UICollectionViewFlowLayout()
@@ -29,6 +30,11 @@ class FlickrViewController: UIViewController {
         collectionView.register(PhotoCollectionViewCell.self, forCellWithReuseIdentifier: kPhotoCollectionCellIdentifier)
         return collectionView
     }()
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setupLoadingView()
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,6 +53,16 @@ class FlickrViewController: UIViewController {
         collectionView.addBottomConstraint()
         collectionView.addLeadingConstraint()
         collectionView.addTrailingConstraint()
+    }
+    
+    func setupLoadingView() {
+        loadingView = LoadingView(frame: .zero)
+        loadingView.configureView(backgroundColor: .white)
+        view.addSubview(loadingView)
+        loadingView.addLeadingConstraint()
+        loadingView.addTrailingConstraint()
+        loadingView.addTopConstraint()
+        loadingView.addBottomConstraint()
     }
 }
 
