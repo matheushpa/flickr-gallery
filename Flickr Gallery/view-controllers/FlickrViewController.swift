@@ -35,7 +35,8 @@ class FlickrViewController: UIViewController {
         view.backgroundColor = .white
         setupCollectionViewLayout()
         searchViewModel = SearchViewModel()
-        searchViewModel.getPhotosByTerm(term: "kitten")
+//        searchViewModel.getPhotosByTerm(term: "kitten")
+        searchViewModel.getPhotoSizes(photoId: 31456463045)
     }
     
     // MARK: - Setup methods
@@ -53,8 +54,6 @@ extension FlickrViewController: UICollectionViewDataSource, UICollectionViewDele
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let cellSize = (collectionView.bounds.width / 2) //- 32
-        print(cellSize)
-        print(collectionView.bounds.width / 2)
         return CGSize(width: cellSize, height: cellSize)
     }
 

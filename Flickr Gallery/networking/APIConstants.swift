@@ -16,7 +16,7 @@ struct APIConstants {
     
     struct Method {
         static let search = "search"
-        static let size = ""
+        static let size = "getSizes"
     }
     
     struct Format {

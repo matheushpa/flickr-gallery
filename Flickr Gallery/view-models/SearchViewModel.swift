@@ -23,7 +23,21 @@ class SearchViewModel {
             } else {
                 
             }
-            print(photos)
+//            print(photos)
+//            print(error)
+        }
+    }
+
+    func getPhotoSizes(photoId: Int) {
+        PhotosService.shared.fetchPhotoSize(photoId: photoId) { [weak self] sizes, error in
+            if let photoSizes = sizes {
+                
+            } else if let errorStatus = error {
+                
+            } else {
+                
+            }
+            print(sizes)
             print(error)
         }
     }
