@@ -8,11 +8,12 @@
 
 import UIKit
 
-class FlickrViewController: UIViewController {
+class FlickrViewController: UIViewController, UISearchBarDelegate {
     
     var searchViewModel: SearchViewModel!
     var loadingView: LoadingView!
     var errorView: ErrorView!
+    let searchController = UISearchController(searchResultsController: nil)
     
     private lazy var collectionViewLayout: UICollectionViewFlowLayout = {
         let collectionViewLayout = UICollectionViewFlowLayout()
@@ -49,6 +50,16 @@ class FlickrViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
+//        self.title = "Flickr Gallery"
+//        self.navigationController?.navigationBar.prefersLargeTitles = true
+        searchController.searchBar.delegate = self
+        searchController.searchBar.searchTextField.backgroundColor = .white
+        self.definesPresentationContext = true
+        self.navigationItem.searchController = searchController
+        self.navigationItem.hidesSearchBarWhenScrolling = false
+        self.navigationItem.titleView = searchController.searchBar
+        self.navigationItem.titleView?.tintColor = .yellow
+        searchController.hidesNavigationBarDuringPresentation = true
         setupCollectionViewLayout()
         searchViewModel = SearchViewModel()
         searchViewModel.delegate = self

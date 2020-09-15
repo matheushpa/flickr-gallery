@@ -67,6 +67,9 @@
 		2FCEF2D6251109BF00D1D98F /* UIColors+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCEF2D5251109BF00D1D98F /* UIColors+Extensions.swift */; };
 		2FCEF2D7251109BF00D1D98F /* UIColors+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCEF2D5251109BF00D1D98F /* UIColors+Extensions.swift */; };
 		2FCEF2D8251109BF00D1D98F /* UIColors+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCEF2D5251109BF00D1D98F /* UIColors+Extensions.swift */; };
+		2FCEF2DA251172A800D1D98F /* MainNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCEF2D9251172A800D1D98F /* MainNavigationViewController.swift */; };
+		2FCEF2DB251172A800D1D98F /* MainNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCEF2D9251172A800D1D98F /* MainNavigationViewController.swift */; };
+		2FCEF2DC251172A800D1D98F /* MainNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FCEF2D9251172A800D1D98F /* MainNavigationViewController.swift */; };
 		437DF29F40A6C4622C9F927C /* Pods_Flickr_Gallery.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E3C55D08E2090A1D70DF3DE /* Pods_Flickr_Gallery.framework */; };
 /* End PBXBuildFile section */
 
@@ -118,6 +121,7 @@
 		2FCEF2CD2510F91100D1D98F /* loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loading.json; sourceTree = "<group>"; };
 		2FCEF2D1251108EE00D1D98F /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 		2FCEF2D5251109BF00D1D98F /* UIColors+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColors+Extensions.swift"; sourceTree = "<group>"; };
+		2FCEF2D9251172A800D1D98F /* MainNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNavigationViewController.swift; sourceTree = "<group>"; };
 		5E2A87B1161AE791D18E8682 /* Pods-Flickr Gallery.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Flickr Gallery.release.xcconfig"; path = "Target Support Files/Pods-Flickr Gallery/Pods-Flickr Gallery.release.xcconfig"; sourceTree = "<group>"; };
 		7E3C55D08E2090A1D70DF3DE /* Pods_Flickr_Gallery.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Flickr_Gallery.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D61E0C069927F0F49822C8D4 /* Pods-Flickr Gallery.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Flickr Gallery.debug.xcconfig"; path = "Target Support Files/Pods-Flickr Gallery/Pods-Flickr Gallery.debug.xcconfig"; sourceTree = "<group>"; };
@@ -259,6 +263,7 @@
 			children = (
 				2FC19E39250FC4C200D205F8 /* FlickrViewController.swift */,
 				2F7953FA2510EDF400220D0D /* PhotoCollectionViewCell.swift */,
+				2FCEF2D9251172A800D1D98F /* MainNavigationViewController.swift */,
 			);
 			path = "view-controllers";
 			sourceTree = "<group>";
@@ -483,6 +488,7 @@
 				2F7953D3251005D200220D0D /* JSONDecoder.swift in Sources */,
 				2FCEF2D6251109BF00D1D98F /* UIColors+Extensions.swift in Sources */,
 				2F7953D7251006D900220D0D /* FlickrAPI.swift in Sources */,
+				2FCEF2DA251172A800D1D98F /* MainNavigationViewController.swift in Sources */,
 				2F7953CA251000C100220D0D /* Photos.swift in Sources */,
 				2FC19E08250FBB9300D205F8 /* AppDelegate.swift in Sources */,
 				2FCEF2D2251108EE00D1D98F /* ErrorView.swift in Sources */,
@@ -506,6 +512,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2F7953CB251000C100220D0D /* Photos.swift in Sources */,
+				2FCEF2DB251172A800D1D98F /* MainNavigationViewController.swift in Sources */,
 				2F7953FC2510EDF400220D0D /* PhotoCollectionViewCell.swift in Sources */,
 				2F7953EE25102B1500220D0D /* PhotoSizes.swift in Sources */,
 				2F7953D02510053900220D0D /* URLManager.swift in Sources */,
@@ -530,6 +537,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2F7953CC251000C100220D0D /* Photos.swift in Sources */,
+				2FCEF2DC251172A800D1D98F /* MainNavigationViewController.swift in Sources */,
 				2F7953FD2510EDF400220D0D /* PhotoCollectionViewCell.swift in Sources */,
 				2F7953EF25102B1500220D0D /* PhotoSizes.swift in Sources */,
 				2F7953D12510053900220D0D /* URLManager.swift in Sources */,
