@@ -12,6 +12,7 @@ class FlickrViewController: UIViewController {
     
     var searchViewModel: SearchViewModel!
     var loadingView: LoadingView!
+    var errorView: ErrorView!
     
     private lazy var collectionViewLayout: UICollectionViewFlowLayout = {
         let collectionViewLayout = UICollectionViewFlowLayout()
@@ -33,7 +34,8 @@ class FlickrViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        setupLoadingView()
+//        setupLoadingView()
+        setupErrorView(isConnected: false)
     }
 
     override func viewDidLoad() {
@@ -64,9 +66,25 @@ class FlickrViewController: UIViewController {
         loadingView.addTopConstraint()
         loadingView.addBottomConstraint()
     }
+    
+    func setupErrorView(isConnected: Bool, resultIsEmpty: Bool? = nil) {
+        collectionView.isHidden = true
+//        if cartIsEmpty != nil, cartIsEmpty == true {
+//            self.errorView = ErrorView(frame: .zero, noConnection: isConnected, resultIsEmpty: resultIsEmpty)
+//        } else {
+            self.errorView = ErrorView(frame: .zero, noConnection: isConnected)
+//        }
+        errorView.configureView(backgroundColor: .white)
+        errorView.delegate = self
+        view.addSubview(errorView)
+        errorView.addLeadingConstraint()
+        errorView.addTrailingConstraint()
+        errorView.addTopConstraint()
+        errorView.addBottomConstraint()
+    }
 }
 
-extension FlickrViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+extension FlickrViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, ErrorViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let cellSize = (collectionView.bounds.width / 2) //- 32
@@ -91,4 +109,11 @@ extension FlickrViewController: UICollectionViewDataSource, UICollectionViewDele
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {}
+    
+    // MARK: - ErrorView delegate
+    
+    func refreshStore() {
+//        setupLoadingView()
+        errorView.removeFromSuperview()
+    }
 }

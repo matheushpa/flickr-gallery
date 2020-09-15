@@ -10,9 +10,9 @@
 
 let kPhotoCollectionCellIdentifier = "photoCellIdentifier"
 
-// MARK: - UICollectionView dimensions
-
 // MARK: - UIColors list
+
+let kBlueColor = 0x0048C9
 
 // MARK: - Labels
 
