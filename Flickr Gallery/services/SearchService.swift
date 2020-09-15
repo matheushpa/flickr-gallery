@@ -18,9 +18,9 @@ class SearchService {
         let params: [String: Any] = ["method": APIConstants.photoMethod + APIConstants.Method.search,
                                      "api_key": APIConstants.apiKey,
                                      "tags": term,
-                                     "page": "1",
+                                     "page": 1,
                                      "format": APIConstants.Format.json,
-                                     "nojsoncallback": "1"]
+                                     "nojsoncallback": 1]
         FlickrAPI.shared.fetch(model: Photos.self, params: params) { photos, error in
             DispatchQueue.main.async {
                 completion(photos, error)
