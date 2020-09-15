@@ -17,7 +17,15 @@ class FlickrViewController: UIViewController {
     private lazy var collectionViewLayout: UICollectionViewFlowLayout = {
         let collectionViewLayout = UICollectionViewFlowLayout()
         collectionViewLayout.scrollDirection = .vertical
-        collectionViewLayout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        collectionViewLayout.minimumLineSpacing = kCellPadding
+        collectionViewLayout.minimumInteritemSpacing = kCellPadding
+        collectionViewLayout.sectionInset = UIEdgeInsets(top: kCellPaddingToBorders,
+                                                         left: kCellPaddingToBorders,
+                                                         bottom: kCellPaddingToBorders,
+                                                         right: kCellPaddingToBorders)
+        let viewWidth = self.view.bounds.size.width
+        let photoSize: CGFloat = (viewWidth - (2 * kCellPaddingToBorders) - (kNumberOfCellsPerRow - 1) * kCellPadding) / kNumberOfCellsPerRow
+        collectionViewLayout.itemSize = CGSize(width: photoSize, height: photoSize)
         return collectionViewLayout
     }()
     
@@ -35,7 +43,7 @@ class FlickrViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 //        setupLoadingView()
-        setupErrorView(isConnected: false)
+//        setupErrorView(isConnected: false)
     }
 
     override func viewDidLoad() {
@@ -43,8 +51,9 @@ class FlickrViewController: UIViewController {
         view.backgroundColor = .white
         setupCollectionViewLayout()
         searchViewModel = SearchViewModel()
-//        searchViewModel.getPhotosByTerm(term: "kitten")
-        searchViewModel.getPhotoSizes(photoId: 31456463045)
+        searchViewModel.delegate = self
+        searchViewModel.getPhotosByTerm(term: "kitten")
+//        searchViewModel.getPhotoSizes(photoId: 31456463045) // USE IT IN UNIT TEST
     }
     
     // MARK: - Setup methods
@@ -84,24 +93,15 @@ class FlickrViewController: UIViewController {
     }
 }
 
-extension FlickrViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, ErrorViewDelegate {
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let cellSize = (collectionView.bounds.width / 2) //- 32
-        return CGSize(width: cellSize, height: cellSize)
-    }
-
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 1.0
-    }
+extension FlickrViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, ErrorViewDelegate, SearchViewModelDelegate {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 20
+        return searchViewModel.getCurrentTotalOfPhotos()
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: kPhotoCollectionCellIdentifier, for: indexPath) as? PhotoCollectionViewCell {
-            cell.bindData(imageURL: "https://farm6.staticflickr.com/5800/31456463045_5a0af4ddc8_q.jpg")
+            cell.bindData(imageURL: searchViewModel.getPhoto(index: indexPath.row))
             return cell
         } else {
             return UICollectionViewCell()
@@ -109,6 +109,18 @@ extension FlickrViewController: UICollectionViewDataSource, UICollectionViewDele
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {}
+    
+    // MARK: - Search View Model delegate
+    
+    func requestSuccess() {
+        DispatchQueue.main.async {
+            self.collectionView.reloadData()
+        }
+    }
+    
+    func requestFailure() {
+    
+    }
     
     // MARK: - ErrorView delegate
     

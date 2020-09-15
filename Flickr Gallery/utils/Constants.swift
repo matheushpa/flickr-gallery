@@ -6,9 +6,17 @@
 //  Copyright © 2020 Matheus Holanda. All rights reserved.
 //
 
-// MARK: - UITableView identifiers
+import UIKit
+
+// MARK: - UICollectionView identifiers
 
 let kPhotoCollectionCellIdentifier = "photoCellIdentifier"
+
+// MARK: - UICollectionView dimensions
+
+let kCellPadding: CGFloat = 16
+let kCellPaddingToBorders: CGFloat = 16
+let kNumberOfCellsPerRow: CGFloat = 2
 
 // MARK: - UIColors list
 
