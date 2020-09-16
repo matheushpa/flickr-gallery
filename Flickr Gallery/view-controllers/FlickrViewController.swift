@@ -99,7 +99,7 @@ class FlickrViewController: UIViewController {
 }
 
 extension FlickrViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, ErrorViewDelegate, SearchViewModelDelegate, UISearchBarDelegate {
-    
+
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return searchViewModel.getCurrentTotalOfPhotos()
     }
@@ -114,6 +114,14 @@ extension FlickrViewController: UICollectionViewDataSource, UICollectionViewDele
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {}
+    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        if searchViewModel.isLoadingCell(for: indexPath) {
+            let page = searchViewModel.getCurrentPage() + 1
+            let term = searchViewModel.getCurrentTerm()
+            searchViewModel.getPhotosByTerm(term: term, page: page)
+        }
+    }
     
     // MARK: - Search View Model delegate
     

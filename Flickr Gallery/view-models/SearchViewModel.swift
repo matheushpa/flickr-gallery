@@ -87,4 +87,16 @@ class SearchViewModel {
             return ""
         }
     }
+    
+    func isLoadingCell(for indexPath: IndexPath) -> Bool {
+        return indexPath.row >= self.getCurrentTotalOfPhotos() - 1
+    }
+    
+    func getCurrentPage() -> Int {
+        return self.currentPage ?? 0
+    }
+    
+    func getCurrentTerm() -> String {
+        return self.lastTerm ?? ""
+    }
 }
