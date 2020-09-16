@@ -30,5 +30,14 @@ class Flickr_GalleryTests: XCTestCase {
             // Put the code you want to measure the time of here.
         }
     }
+    
+    func testPhotoSearchByTerm() {
+        let viewModel = SearchViewModel()
+        viewModel.getPhotosByTerm(term: "kitten")
+    }
 
+    func testPhotoSize() {
+        let viewModel = SearchViewModel()
+        viewModel.getPhotoSizes(photoId: 31456463045)
+    }
 }
