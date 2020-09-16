@@ -12,13 +12,11 @@ class SearchService {
     
     static let shared = SearchService()
     
-    // TODO: - Remove JSON and be more custom and PAGINATION
-    
-    func fetchSearch(term: String, then completion: @escaping (Photos?, Error?) -> Void) {
+    func fetchSearch(term: String, page: Int, then completion: @escaping (Photos?, Error?) -> Void) {
         let params: [String: Any] = ["method": APIConstants.photoMethod + APIConstants.Method.search,
                                      "api_key": APIConstants.apiKey,
                                      "tags": term,
-                                     "page": 1,
+                                     "page": page,
                                      "format": APIConstants.Format.json,
                                      "nojsoncallback": 1]
         FlickrAPI.shared.fetch(model: Photos.self, params: params) { photos, error in

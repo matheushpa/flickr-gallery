@@ -150,7 +150,7 @@ extension FlickrViewController: UICollectionViewDataSource, UICollectionViewDele
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         setupLoadingView()
         if let term = searchBar.text, term.count >= 3 {
-            searchViewModel.getPhotosByTerm(term: term)
+            searchViewModel.getPhotosByTerm(term: term, page: 1)
         }
         searchController.isActive = false
     }
