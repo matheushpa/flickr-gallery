@@ -40,31 +40,14 @@ class FlickrViewController: UIViewController {
         collectionView.register(PhotoCollectionViewCell.self, forCellWithReuseIdentifier: kPhotoCollectionCellIdentifier)
         return collectionView
     }()
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        setupLoadingView()
-//        setupErrorView(isConnected: false)
-    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-//        self.title = "Flickr Gallery"
-//        self.navigationController?.navigationBar.prefersLargeTitles = true
-        searchController.searchBar.delegate = self
-        searchController.searchBar.searchTextField.backgroundColor = .white
-        self.definesPresentationContext = true
-        self.navigationItem.searchController = searchController
-        self.navigationItem.hidesSearchBarWhenScrolling = false
-        self.navigationItem.titleView = searchController.searchBar
-        self.navigationItem.titleView?.tintColor = .yellow
-        searchController.hidesNavigationBarDuringPresentation = true
+        setupSearchBar()
         setupCollectionViewLayout()
         searchViewModel = SearchViewModel()
         searchViewModel.delegate = self
-        searchViewModel.getPhotosByTerm(term: "kitten")
-//        searchViewModel.getPhotoSizes(photoId: 31456463045) // USE IT IN UNIT TEST
     }
     
     // MARK: - Setup methods
@@ -87,13 +70,24 @@ class FlickrViewController: UIViewController {
         loadingView.addBottomConstraint()
     }
     
+    func setupSearchBar() {
+        searchController.searchBar.delegate = self
+        searchController.searchBar.searchTextField.backgroundColor = .white
+        self.definesPresentationContext = true
+        self.navigationItem.searchController = searchController
+        self.navigationItem.hidesSearchBarWhenScrolling = false
+        self.navigationItem.titleView = searchController.searchBar
+        self.navigationItem.titleView?.tintColor = .yellow
+        searchController.hidesNavigationBarDuringPresentation = true
+    }
+    
     func setupErrorView(isConnected: Bool, resultIsEmpty: Bool? = nil) {
         collectionView.isHidden = true
-//        if cartIsEmpty != nil, cartIsEmpty == true {
-//            self.errorView = ErrorView(frame: .zero, noConnection: isConnected, resultIsEmpty: resultIsEmpty)
-//        } else {
+        if resultIsEmpty != nil, resultIsEmpty == true {
+            self.errorView = ErrorView(frame: .zero, noConnection: isConnected, resultIsEmpty: resultIsEmpty)
+        } else {
             self.errorView = ErrorView(frame: .zero, noConnection: isConnected)
-//        }
+        }
         errorView.configureView(backgroundColor: .white)
         errorView.delegate = self
         view.addSubview(errorView)
@@ -125,25 +119,36 @@ extension FlickrViewController: UICollectionViewDataSource, UICollectionViewDele
     
     func requestSuccess() {
         loadingView.removeAnimation()
-        DispatchQueue.main.async {
-            self.collectionView.reloadData()
+        collectionView.isHidden = false
+        collectionView.reloadData()
+        if searchViewModel.getCurrentTotalOfPhotos() == 0 {
+            setupErrorView(isConnected: true, resultIsEmpty: true)
+        } else if errorView != nil {
+            errorView.removeFromSuperview()
         }
     }
     
     func requestFailure() {
         loadingView.removeAnimation()
+        setupErrorView(isConnected: true)
+    }
+    
+    func noConnectionAvailable() {
+        loadingView.removeAnimation()
+        setupErrorView(isConnected: false)
     }
     
     // MARK: - ErrorView delegate
     
     func refreshStore() {
-        setupLoadingView()
+//        setupLoadingView()
         errorView.removeFromSuperview()
     }
     
     // MARK: - SearchBar delegate
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        setupLoadingView()
         if let term = searchBar.text, term.count >= 3 {
             searchViewModel.getPhotosByTerm(term: term)
         }
@@ -156,5 +161,8 @@ extension FlickrViewController: UICollectionViewDataSource, UICollectionViewDele
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchBar.showsCancelButton = false
+        if errorView != nil {
+            errorView.removeFromSuperview()
+        }
     }
 }
