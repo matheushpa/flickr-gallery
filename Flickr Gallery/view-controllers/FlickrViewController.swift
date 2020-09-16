@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FlickrViewController: UIViewController, UISearchBarDelegate {
+class FlickrViewController: UIViewController {
     
     var searchViewModel: SearchViewModel!
     var loadingView: LoadingView!
@@ -43,7 +43,7 @@ class FlickrViewController: UIViewController, UISearchBarDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-//        setupLoadingView()
+        setupLoadingView()
 //        setupErrorView(isConnected: false)
     }
 
@@ -104,7 +104,7 @@ class FlickrViewController: UIViewController, UISearchBarDelegate {
     }
 }
 
-extension FlickrViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, ErrorViewDelegate, SearchViewModelDelegate {
+extension FlickrViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, ErrorViewDelegate, SearchViewModelDelegate, UISearchBarDelegate {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return searchViewModel.getCurrentTotalOfPhotos()
@@ -124,19 +124,37 @@ extension FlickrViewController: UICollectionViewDataSource, UICollectionViewDele
     // MARK: - Search View Model delegate
     
     func requestSuccess() {
+        loadingView.removeAnimation()
         DispatchQueue.main.async {
             self.collectionView.reloadData()
         }
     }
     
     func requestFailure() {
-    
+        loadingView.removeAnimation()
     }
     
     // MARK: - ErrorView delegate
     
     func refreshStore() {
-//        setupLoadingView()
+        setupLoadingView()
         errorView.removeFromSuperview()
+    }
+    
+    // MARK: - SearchBar delegate
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        if let term = searchBar.text, term.count >= 3 {
+            searchViewModel.getPhotosByTerm(term: term)
+        }
+        searchController.isActive = false
+    }
+    
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        searchBar.showsCancelButton = true
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.showsCancelButton = false
     }
 }
