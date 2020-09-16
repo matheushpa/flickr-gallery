@@ -31,13 +31,33 @@ class Flickr_GalleryTests: XCTestCase {
         }
     }
     
-    func testPhotoSearchByTerm() {
+    func testPhotoSearchByTermVM() {
         let viewModel = SearchViewModel()
-        viewModel.getPhotosByTerm(term: "kitten")
+        viewModel.getPhotosByTerm(term: "kitten", page: 1)
     }
 
-    func testPhotoSize() {
+    func testPhotoSizeVM() {
         let viewModel = SearchViewModel()
         viewModel.getPhotoSizes(photoId: 31456463045)
+    }
+
+    func testPhotoSearchRequest() {
+        SearchService.shared.fetchSearch(term: "kitten", page: 1) { (photos, error) in
+            if let errorStatus = error as? URLError {
+                print(errorStatus.errorCode)
+            } else if let result = photos {
+                print(result)
+            }
+        }
+    }
+    
+    func testPhotoSizeRequest() {
+        PhotosService.shared.fetchPhotoSize(photoId: 31456463045) { (photoSizes, error) in
+            if let errorStatus = error as? URLError {
+                print(errorStatus.errorCode)
+            } else if let result = photoSizes {
+                print(result)
+            }
+        }
     }
 }

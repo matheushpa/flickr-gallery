@@ -21,6 +21,7 @@ class FlickrAPI {
             completion(nil, nil)
             return
         }
+        print(url)
         let request = URLRequest(url: url)
         task = session.dataTask(with: request) { (rawData, response, error) in
             guard let data = rawData, error == nil else {

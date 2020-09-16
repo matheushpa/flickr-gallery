@@ -1,5 +1,0 @@
-{
-    "search-url": "https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=f9cc014fa76b098f9e82f1c288379ea1&tags=kitten&page=1&format=json&nojsoncallback=1",
-    "get-size-url": "https://api.flickr.com/services/rest/?method=flickr.photos.getSizes&api_key=f9cc014fa76b098f9e82f1c288379ea1&photo_id=31456463045&format=json&nojsoncallback=1",
-    "image-url": "https://farm6.staticflickr.com/5800/31456463045_5a0af4ddc8_q.jpg"
-}
