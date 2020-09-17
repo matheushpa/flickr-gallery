@@ -44,18 +44,16 @@ class PhotoViewerViewController: UIViewController {
     
     func setupPhotoImageView() {
         view.addSubview(photoImageView)
-        photoImageView.addTopConstraint()
-        photoImageView.addBottomConstraint()
-        photoImageView.addLeadingConstraint()
-        photoImageView.addTrailingConstraint()
+        photoImageView.fillSuperview()
         photoImageView.sd_setImage(with: URL(string: imageURL),
                                    placeholderImage: UIImage(named: "placeholder"))
     }
     
     func setupCloseButton() {
         view.addSubview(closeButton)
-        closeButton.addTopConstraint(constant: 16)
-        closeButton.addTrailingConstraint(constant: -16)
+        closeButton.anchor(top: view.topAnchor,
+                           trailing: view.trailingAnchor,
+                           padding: UIEdgeInsets(top: 16, left: 0, bottom: 0, right: 16))
     }
     
     // MARK: - Action methods

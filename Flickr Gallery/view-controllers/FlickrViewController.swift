@@ -54,20 +54,14 @@ class FlickrViewController: UIViewController {
     
     func setupCollectionViewLayout() {
         view.addSubview(collectionView)
-        collectionView.addTopConstraint()
-        collectionView.addBottomConstraint()
-        collectionView.addLeadingConstraint()
-        collectionView.addTrailingConstraint()
+        collectionView.fillSuperview()
     }
     
     func setupLoadingView() {
         loadingView = LoadingView(frame: .zero)
         loadingView.configureView(backgroundColor: .white)
         view.addSubview(loadingView)
-        loadingView.addLeadingConstraint()
-        loadingView.addTrailingConstraint()
-        loadingView.addTopConstraint()
-        loadingView.addBottomConstraint()
+        loadingView.fillSuperview()
     }
     
     func setupSearchBar() {
@@ -91,10 +85,7 @@ class FlickrViewController: UIViewController {
         errorView.configureView(backgroundColor: .white)
         errorView.delegate = self
         view.addSubview(errorView)
-        errorView.addLeadingConstraint()
-        errorView.addTrailingConstraint()
-        errorView.addTopConstraint()
-        errorView.addBottomConstraint()
+        errorView.fillSuperview()
     }
 }
 

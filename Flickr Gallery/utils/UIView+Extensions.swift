@@ -25,86 +25,43 @@ extension UIView {
     }
     
     // MARK: - Constraints
-    
-    func addConstraintToCenterVertically(constant: CGFloat? = nil) {
-        addConstraint(attribute: .centerY,
-                      relatedBy: .equal,
-                      toItem: self.superview,
-                      parentViewAttributeAnchor: .centerY,
-                      multiplier: 1.0,
-                      constant: constant ?? 0)
+
+    func fillSuperview() {
+        anchor(top: superview?.topAnchor, leading: superview?.leadingAnchor, bottom: superview?.bottomAnchor, trailing: superview?.trailingAnchor)
     }
     
-    func addConstraintToCenterHorizontally(constant: CGFloat? = nil) {
-        addConstraint(attribute: .centerX,
-                      relatedBy: .equal,
-                      toItem: self.superview,
-                      parentViewAttributeAnchor: .centerX,
-                      multiplier: 1.0,
-                      constant: constant ?? 0)
+    func centerView() {
+        if let centerHorizontally = superview?.centerXAnchor {
+            centerXAnchor.constraint(equalTo: centerHorizontally).isActive = true
+        }
+        if let centerVertically = superview?.centerYAnchor {
+            centerYAnchor.constraint(equalTo: centerVertically).isActive = true
+        }
     }
     
-    func addHeightConstraint(relatedBy: NSLayoutConstraint.Relation? = nil, constant: CGFloat) {
-        addConstraint(attribute: .height,
-                      relatedBy: relatedBy ?? .equal,
-                      parentViewAttributeAnchor: .notAnAttribute,
-                      multiplier: 1.0,
-                      constant: constant)
+    func addSize(width: CGFloat? = nil, height: CGFloat? = nil) {
+        if let width = width {
+            widthAnchor.constraint(equalToConstant: width).isActive = true
+        }
+        if let height = height {
+            heightAnchor.constraint(equalToConstant: height).isActive = true
+        }
     }
     
-    func addWidthConstraint(relatedBy: NSLayoutConstraint.Relation? = nil, constant: CGFloat) {
-        addConstraint(attribute: .width,
-                      relatedBy: relatedBy ?? .equal,
-                      parentViewAttributeAnchor: .notAnAttribute,
-                      multiplier: 1.0,
-                      constant: constant)
-    }
-    
-    func addTopConstraint(relatedBy: NSLayoutConstraint.Relation? = nil, parentViewAttributeAnchor: NSLayoutConstraint.Attribute? = nil, multiplier: CGFloat? = nil, constant: CGFloat? = nil) {
-        addConstraint(attribute: .top,
-                      relatedBy: relatedBy ?? .equal,
-                      toItem: self.superview,
-                      parentViewAttributeAnchor: parentViewAttributeAnchor ?? .top,
-                      multiplier: multiplier ?? 1.0,
-                      constant: constant ?? 0)
-    }
-    
-    func addBottomConstraint(relatedBy: NSLayoutConstraint.Relation? = nil, parentViewAttributeAnchor: NSLayoutConstraint.Attribute? = nil, multiplier: CGFloat? = nil, constant: CGFloat? = nil) {
-        addConstraint(attribute: .bottom,
-                      relatedBy: relatedBy ?? .equal,
-                      toItem: self.superview,
-                      parentViewAttributeAnchor: parentViewAttributeAnchor ?? .bottom,
-                      multiplier: multiplier ?? 1.0,
-                      constant: constant ?? 0)
-    }
-    
-    func addLeadingConstraint(relatedBy: NSLayoutConstraint.Relation? = nil, parentViewAttributeAnchor: NSLayoutConstraint.Attribute? = nil, multiplier: CGFloat? = nil, constant: CGFloat? = nil) {
-        addConstraint(attribute: .leading,
-                      relatedBy: relatedBy ?? .equal,
-                      toItem: self.superview,
-                      parentViewAttributeAnchor: parentViewAttributeAnchor ?? .leading,
-                      multiplier: multiplier ?? 1.0,
-                      constant: constant ?? 0)
-    }
-    
-    func addTrailingConstraint(relatedBy: NSLayoutConstraint.Relation? = nil, parentViewAttributeAnchor: NSLayoutConstraint.Attribute? = nil, multiplier: CGFloat? = nil, constant: CGFloat? = nil) {
-        addConstraint(attribute: .trailing,
-                      relatedBy: relatedBy ?? .equal,
-                      toItem: self.superview,
-                      parentViewAttributeAnchor: parentViewAttributeAnchor ?? .trailing,
-                      multiplier: multiplier ?? 1.0,
-                      constant: constant ?? 0)
-    }
-    
-    func addConstraint(attribute: NSLayoutConstraint.Attribute, relatedBy: NSLayoutConstraint.Relation, toItem: UIView? = nil, parentViewAttributeAnchor: NSLayoutConstraint.Attribute, multiplier: CGFloat, constant: CGFloat) {
-        let constraint = NSLayoutConstraint(item: self,
-                                            attribute: attribute,
-                                            relatedBy: relatedBy,
-                                            toItem: toItem,
-                                            attribute: parentViewAttributeAnchor,
-                                            multiplier: multiplier,
-                                            constant: constant)
-        self.superview?.addConstraint(constraint)
+    func anchor(top: NSLayoutYAxisAnchor? = nil, leading: NSLayoutXAxisAnchor? = nil, bottom: NSLayoutYAxisAnchor? = nil, trailing: NSLayoutXAxisAnchor? = nil, padding: UIEdgeInsets = .zero) {
+        translatesAutoresizingMaskIntoConstraints = false
+        if let top = top {
+            topAnchor.constraint(equalTo: top, constant: padding.top).isActive = true
+        }
+        if let leading = leading {
+            leadingAnchor.constraint(equalTo: leading, constant: padding.left).isActive = true
+        }
+        if let bottom = bottom {
+            bottomAnchor.constraint(equalTo: bottom, constant: -padding.bottom).isActive = true
+        }
+        if let trailing = trailing {
+            trailingAnchor.constraint(equalTo: trailing, constant: -padding.right).isActive = true
+        }
     }
 }
 
