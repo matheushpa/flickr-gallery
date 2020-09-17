@@ -40,4 +40,35 @@ class Flickr_GalleryUITests: XCTestCase {
             }
         }
     }
+    
+    func testAppFlowForExistentContent() {
+        let app = XCUIApplication()
+        app.launch()
+        app.searchFields["Search"].doubleTap()
+        app.searchFields["Search"].typeText("kitten")
+        app.keyboards.buttons["Search"].tap()
+        app.collectionViews.cells.element(boundBy: 0).tap()
+        app.buttons["close"].tap()
+    }
+    
+    func testAppFlowForNonExistentContent() {
+        let app = XCUIApplication()
+        app.launch()
+        app.searchFields["Search"].doubleTap()
+        app.searchFields["Search"].typeText("sdhufdsivbdfh")
+        app.keyboards.buttons["Search"].tap()
+    }
+    
+    func testInfiniteScroll() {
+        let app = XCUIApplication()
+        app.launch()
+        app.searchFields["Search"].doubleTap()
+        app.searchFields["Search"].typeText("kitten")
+        app.keyboards.buttons["Search"].tap()
+        let collectionCell = app.staticTexts["No texts in cell"]
+        print(app.collectionViews.cells.count)
+        while !collectionCell.exists {
+            app.swipeUp()
+        }
+    }
 }
