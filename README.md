@@ -1,4 +1,4 @@
-# flickr-gallery
+# Flickr Gallery
 Just a simple Flickr image gallery!
 
 ## About
