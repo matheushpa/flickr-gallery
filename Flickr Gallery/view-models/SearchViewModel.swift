@@ -46,7 +46,7 @@ class SearchViewModel {
     
     func verifyActualPageAndSearch(term: String, previousPage: Int) {
         if self.currentPage != previousPage {
-            self.currentPage += 1 // previousPage + 1
+            self.currentPage += 1
         }
         if self.lastTerm == nil {
             self.lastTerm = term
@@ -83,8 +83,6 @@ class SearchViewModel {
     }
     
     func getLargePhoto(index: Int) -> String {
-        // TODO: - FIX index out of range
-        // Example: search for dogs, scroll a lot, then search for no more heroes
         if let photo = self.photos?[index], let imageURL = photo.largeImageURL {
             return imageURL
         } else {
