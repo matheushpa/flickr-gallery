@@ -106,14 +106,18 @@ extension FlickrViewController: UICollectionViewDataSource, UICollectionViewDele
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: kPhotoCollectionCellIdentifier, for: indexPath) as? PhotoCollectionViewCell {
-            cell.bindData(imageURL: searchViewModel.getPhoto(index: indexPath.row))
+            cell.bindData(imageURL: searchViewModel.getThumbnailPhoto(index: indexPath.row))
             return cell
         } else {
             return UICollectionViewCell()
         }
     }
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {}
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let photoViewer = PhotoViewerViewController()
+        photoViewer.imageURL = searchViewModel.getLargePhoto(index: indexPath.row)
+        self.navigationController?.present(photoViewer, animated: true)
+    }
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         if searchViewModel.isLoadingCell(for: indexPath) {

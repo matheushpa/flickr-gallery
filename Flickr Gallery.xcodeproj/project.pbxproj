@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		2D59C5FEC9E07EE187F12792 /* Pods_Flickr_GalleryUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B52E137E1050DC6BAFA1B115 /* Pods_Flickr_GalleryUITests.framework */; };
+		2F4AF25F2512BE3000141794 /* PhotoViewerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4AF25E2512BE3000141794 /* PhotoViewerViewController.swift */; };
+		2F4AF2602512BE3000141794 /* PhotoViewerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4AF25E2512BE3000141794 /* PhotoViewerViewController.swift */; };
+		2F4AF2612512BE3000141794 /* PhotoViewerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4AF25E2512BE3000141794 /* PhotoViewerViewController.swift */; };
 		2F7953CA251000C100220D0D /* Photos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F7953C9251000C100220D0D /* Photos.swift */; };
 		2F7953CB251000C100220D0D /* Photos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F7953C9251000C100220D0D /* Photos.swift */; };
 		2F7953CC251000C100220D0D /* Photos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F7953C9251000C100220D0D /* Photos.swift */; };
@@ -91,6 +94,7 @@
 		1A2DCD81818D4A8E2BC49EC1 /* Pods_Flickr_GalleryTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Flickr_GalleryTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DD1D1BD35E685581C1B2993 /* Pods-Flickr GalleryTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Flickr GalleryTests.debug.xcconfig"; path = "Target Support Files/Pods-Flickr GalleryTests/Pods-Flickr GalleryTests.debug.xcconfig"; sourceTree = "<group>"; };
 		247A9A8E251A4C82FE1D191E /* Pods-Flickr GalleryTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Flickr GalleryTests.release.xcconfig"; path = "Target Support Files/Pods-Flickr GalleryTests/Pods-Flickr GalleryTests.release.xcconfig"; sourceTree = "<group>"; };
+		2F4AF25E2512BE3000141794 /* PhotoViewerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewerViewController.swift; sourceTree = "<group>"; };
 		2F7953C9251000C100220D0D /* Photos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photos.swift; sourceTree = "<group>"; };
 		2F7953D2251005D200220D0D /* JSONDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONDecoder.swift; sourceTree = "<group>"; };
 		2F7953D6251006D900220D0D /* FlickrAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlickrAPI.swift; sourceTree = "<group>"; };
@@ -265,6 +269,7 @@
 				2FC19E39250FC4C200D205F8 /* FlickrViewController.swift */,
 				2F7953FA2510EDF400220D0D /* PhotoCollectionViewCell.swift */,
 				2FCEF2D9251172A800D1D98F /* MainNavigationViewController.swift */,
+				2F4AF25E2512BE3000141794 /* PhotoViewerViewController.swift */,
 			);
 			path = "view-controllers";
 			sourceTree = "<group>";
@@ -573,6 +578,7 @@
 				2F7953D3251005D200220D0D /* JSONDecoder.swift in Sources */,
 				2FCEF2D6251109BF00D1D98F /* UIColors+Extensions.swift in Sources */,
 				2F7953D7251006D900220D0D /* FlickrAPI.swift in Sources */,
+				2F4AF25F2512BE3000141794 /* PhotoViewerViewController.swift in Sources */,
 				2FCEF2DA251172A800D1D98F /* MainNavigationViewController.swift in Sources */,
 				2F7953CA251000C100220D0D /* Photos.swift in Sources */,
 				2FC19E08250FBB9300D205F8 /* AppDelegate.swift in Sources */,
@@ -612,6 +618,7 @@
 				2FC19E3B250FC4C200D205F8 /* FlickrViewController.swift in Sources */,
 				2F7953F725103DE300220D0D /* Constants.swift in Sources */,
 				2FCEF2D3251108EE00D1D98F /* ErrorView.swift in Sources */,
+				2F4AF2602512BE3000141794 /* PhotoViewerViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -636,6 +643,7 @@
 				2FC19E3C250FC4C200D205F8 /* FlickrViewController.swift in Sources */,
 				2F7953F825103DE300220D0D /* Constants.swift in Sources */,
 				2FCEF2D4251108EE00D1D98F /* ErrorView.swift in Sources */,
+				2F4AF2612512BE3000141794 /* PhotoViewerViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
