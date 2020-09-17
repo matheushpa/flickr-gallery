@@ -21,5 +21,6 @@ Also, it is required that you have CocoaPods. After you download the project, yo
 `pod install`
 
 ## Additional Information 
-XCode Version 11.7 | Swift 5.0
+XCode Version 11.7 | Swift 5.0 
+
 The Flicker API was used to develop the app. Unit and UI tests were also added to project. I'm open to feedback and suggestions! :)
