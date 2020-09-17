@@ -9,8 +9,7 @@
 import Foundation
 
 protocol SearchViewModelDelegate: class {
-    func noConnectionAvailable()
-    func requestFailure()
+    func requestFailure(isConnected: Bool)
     func requestSuccess()
 }
 
@@ -24,8 +23,6 @@ class SearchViewModel {
     
     func getPhotosByTerm(term: String, page: Int) {
         self.verifyActualPageAndSearch(term: term, previousPage: page)
-        print(totalPages)
-        print(currentPage)
         if currentPage <= totalPages {
             SearchService.shared.fetchSearch(term: term, page: self.currentPage) { [weak self] photos, error in
                 if let pages = photos?.photos?.pages {
@@ -39,9 +36,9 @@ class SearchViewModel {
                     }
                     self?.delegate?.requestSuccess()
                 } else if let statusCode = error as? URLError, statusCode.errorCode == -1009 {
-                    self?.delegate?.noConnectionAvailable()
+                    self?.delegate?.requestFailure(isConnected: false)
                 } else {
-                    self?.delegate?.requestFailure()
+                    self?.delegate?.requestFailure(isConnected: true)
                 }
             }
         }
@@ -66,9 +63,9 @@ class SearchViewModel {
             if let photoSizes = sizes {
                 print(photoSizes)
             } else if let statusCode = error as? URLError, statusCode.errorCode == -1009 {
-                self?.delegate?.noConnectionAvailable()
+                self?.delegate?.requestFailure(isConnected: false)
             } else {
-                self?.delegate?.requestFailure()
+                self?.delegate?.requestFailure(isConnected: true)
             }
         }
     }
@@ -87,7 +84,7 @@ class SearchViewModel {
     
     func getLargePhoto(index: Int) -> String {
         // TODO: - FIX index out of range
-        // Example: search for dogs, scroll a lot, then search for no more heroes 
+        // Example: search for dogs, scroll a lot, then search for no more heroes
         if let photo = self.photos?[index], let imageURL = photo.largeImageURL {
             return imageURL
         } else {

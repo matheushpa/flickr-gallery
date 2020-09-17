@@ -267,8 +267,8 @@
 			isa = PBXGroup;
 			children = (
 				2FC19E39250FC4C200D205F8 /* FlickrViewController.swift */,
-				2F7953FA2510EDF400220D0D /* PhotoCollectionViewCell.swift */,
 				2FCEF2D9251172A800D1D98F /* MainNavigationViewController.swift */,
+				2F7953FA2510EDF400220D0D /* PhotoCollectionViewCell.swift */,
 				2F4AF25E2512BE3000141794 /* PhotoViewerViewController.swift */,
 			);
 			path = "view-controllers";

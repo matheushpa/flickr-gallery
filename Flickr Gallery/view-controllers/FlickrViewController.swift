@@ -131,20 +131,21 @@ extension FlickrViewController: UICollectionViewDataSource, UICollectionViewDele
         }
     }
     
-    func requestFailure() {
+    func requestFailure(isConnected: Bool) {
         loadingView.removeAnimation()
-        setupErrorView(isConnected: true)
-    }
-    
-    func noConnectionAvailable() {
-        loadingView.removeAnimation()
-        setupErrorView(isConnected: false)
+        setupErrorView(isConnected: isConnected)
     }
     
     // MARK: - ErrorView delegate
     
-    func refreshStore() {
-//        setupLoadingView()
+    func refreshSearch() {
+        collectionView.isHidden = false
+        collectionView.reloadData()
+        errorView.removeFromSuperview()
+    }
+    
+    func continueOffline() {
+        collectionView.isHidden = false
         errorView.removeFromSuperview()
     }
     
@@ -164,8 +165,5 @@ extension FlickrViewController: UICollectionViewDataSource, UICollectionViewDele
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchBar.showsCancelButton = false
-        if errorView != nil {
-            errorView.removeFromSuperview()
-        }
     }
 }

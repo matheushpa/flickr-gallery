@@ -26,7 +26,7 @@ class PhotoViewerViewController: UIViewController {
         let buttonAttributedTitle = NSAttributedString(string: kClose,
                                                        attributes: [
                                                         NSAttributedString.Key.foregroundColor: UIColor.init(netHex: kBlueColor),
-                                                        NSAttributedString.Key.font: UIFont(name: "HelveticaNeue", size: 16) as Any])
+                                                        NSAttributedString.Key.font: UIFont(name: kDefaultFont, size: 16) as Any])
         button.setAttributedTitle(buttonAttributedTitle, for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.addTarget(self, action: #selector(closePhoto), for: .touchUpInside)
