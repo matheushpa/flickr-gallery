@@ -75,16 +75,16 @@ class SearchViewModel {
     }
     
     func getThumbnailPhoto(index: Int) -> String {
-        if let photo = self.photos?[index], let imageURL = photo.largeSquareImageURL {
-            return imageURL
+        if let isIndexValid = self.photos?.indices.contains(index), isIndexValid {
+            return self.photos?[index].largeSquareImageURL ?? ""
         } else {
             return ""
         }
     }
     
     func getLargePhoto(index: Int) -> String {
-        if let photo = self.photos?[index], let imageURL = photo.largeImageURL {
-            return imageURL
+        if let isIndexValid = self.photos?.indices.contains(index), isIndexValid {
+            return self.photos?[index].largeImageURL ?? ""
         } else {
             return ""
         }
