@@ -33,10 +33,7 @@ class PhotoCollectionViewCell: UICollectionViewCell {
     
     func setupPhotoImageView() {
         self.addSubview(photoImageView)
-        photoImageView.addTopConstraint()
-        photoImageView.addBottomConstraint()
-        photoImageView.addLeadingConstraint()
-        photoImageView.addTrailingConstraint()
+        photoImageView.fillSuperview()
     }
     
     func bindData(imageURL: String) {

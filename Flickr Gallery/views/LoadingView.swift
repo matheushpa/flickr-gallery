@@ -34,10 +34,8 @@ class LoadingView: UIView {
     
     func setupLoadingAnimation() {
         self.addSubview(lottieAnimation)
-        lottieAnimation.addHeightConstraint(constant: 100)
-        lottieAnimation.addWidthConstraint(constant: 100)
-        lottieAnimation.addConstraintToCenterVertically()
-        lottieAnimation.addConstraintToCenterHorizontally()
+        lottieAnimation.addSize(width: 100, height: 100)
+        lottieAnimation.centerView()
         lottieAnimation.play()
     }
     

@@ -93,10 +93,9 @@ class ErrorView: UIView {
             tryAgainButton.isHidden = false
             errorDetailLabel.text = kNoConnectionDescription
         }
-        tryAgainButton.addHeightConstraint(constant: 48)
-        stackView.addWidthConstraint(constant: 272)
-        stackView.addConstraintToCenterHorizontally()
-        stackView.addConstraintToCenterVertically()
+        tryAgainButton.addSize(height: 48)
+        stackView.addSize(width: 272)
+        stackView.centerView()
     }
     
     // MARK: - Action methods
