@@ -11,9 +11,7 @@ import Foundation
 class PhotosService {
     
     static let shared = PhotosService()
-    
-    // TODO: - Remove JSON and be more custom and GET PER PHOTO ID
-    
+
     func fetchPhotoSize(photoId: Int, then completion: @escaping (PhotoSizes?, Error?) -> Void) {
         let params: [String: Any] = ["method": APIConstants.photoMethod + APIConstants.Method.size,
                                      "api_key": APIConstants.apiKey,

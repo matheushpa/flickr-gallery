@@ -53,7 +53,10 @@ class PhotoViewerViewController: UIViewController {
         view.addSubview(closeButton)
         closeButton.anchor(top: view.topAnchor,
                            trailing: view.trailingAnchor,
-                           padding: UIEdgeInsets(top: 16, left: 0, bottom: 0, right: 16))
+                           padding: UIEdgeInsets(top: 16,
+                                                 left: 0,
+                                                 bottom: 0,
+                                                 right: 16))
     }
     
     // MARK: - Action methods

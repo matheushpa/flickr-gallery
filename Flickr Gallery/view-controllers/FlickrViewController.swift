@@ -59,7 +59,7 @@ class FlickrViewController: UIViewController {
     
     func setupLoadingView() {
         loadingView = LoadingView(frame: .zero)
-        loadingView.configureView(backgroundColor: .white)
+        loadingView.backgroundColor = .white
         view.addSubview(loadingView)
         loadingView.fillSuperview()
     }
@@ -67,11 +67,12 @@ class FlickrViewController: UIViewController {
     func setupSearchBar() {
         searchController.searchBar.delegate = self
         searchController.searchBar.searchTextField.backgroundColor = .white
+        searchController.searchBar.searchTextField.tintColor = .black
         self.definesPresentationContext = true
         self.navigationItem.searchController = searchController
         self.navigationItem.hidesSearchBarWhenScrolling = false
         self.navigationItem.titleView = searchController.searchBar
-        self.navigationItem.titleView?.tintColor = .yellow
+        self.navigationItem.titleView?.tintColor = .white
         searchController.hidesNavigationBarDuringPresentation = true
     }
     
@@ -82,7 +83,7 @@ class FlickrViewController: UIViewController {
         } else {
             self.errorView = ErrorView(frame: .zero, noConnection: isConnected)
         }
-        errorView.configureView(backgroundColor: .white)
+        errorView.backgroundColor = .white
         errorView.delegate = self
         view.addSubview(errorView)
         errorView.fillSuperview()

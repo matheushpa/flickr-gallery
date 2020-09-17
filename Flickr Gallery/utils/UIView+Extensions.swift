@@ -12,12 +12,6 @@ extension UIView {
     
     // MARK: Setup views
     
-    func configureView(backgroundColor: UIColor, cornerRadius: CGFloat? = nil) {
-        self.backgroundColor = backgroundColor
-        self.layer.cornerRadius = cornerRadius ?? 0
-        self.translatesAutoresizingMaskIntoConstraints = false
-    }
-    
     func addSubviews(_ views: UIView...) {
         for view in views {
             addSubview(view)
@@ -66,12 +60,6 @@ extension UIView {
 }
 
 extension UIStackView {
-    
-    func configureStackView(spacing: CGFloat, axis: NSLayoutConstraint.Axis) {
-        self.spacing = spacing
-        self.axis = axis
-        self.translatesAutoresizingMaskIntoConstraints = false
-    }
     
     func addArrangedSubviews(_ views: UIView...) {
         for view in views {
