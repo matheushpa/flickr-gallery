@@ -22,6 +22,10 @@ let kNumberOfCellsPerRow: CGFloat = 2
 
 let kBlueColor = 0x0048C9
 
+// MARK: - Fonts
+
+let kDefaultFont = "HelveticaNeue"
+
 // MARK: - Labels
 
 let kErrorTitle = "ops!"
@@ -30,3 +34,4 @@ let kNoConnectionDescription = "the internet connection seems to be off... do yo
 let kTryAgain = "try again"
 let kEmptyResults = "there are no matches."
 let kClose = "close"
+let kContinueOffline = "continue offline"
