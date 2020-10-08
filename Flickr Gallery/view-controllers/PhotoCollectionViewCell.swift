@@ -11,12 +11,8 @@ import SDWebImage
 
 class PhotoCollectionViewCell: UICollectionViewCell {
     
-    private lazy var photoImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.contentMode = .scaleAspectFill
-        imageView.layer.cornerRadius = 12.0
-        imageView.clipsToBounds = true
-        imageView.translatesAutoresizingMaskIntoConstraints = false
+    private lazy var photoImageView: ImageView = {
+        let imageView = ImageView()
         return imageView
     }()
     
@@ -37,7 +33,6 @@ class PhotoCollectionViewCell: UICollectionViewCell {
     }
     
     func bindData(imageURL: String) {
-        photoImageView.sd_setImage(with: URL(string: imageURL),
-                                   placeholderImage: UIImage(named: "placeholder"))
+        photoImageView.type = GalleryImageView(url: imageURL)
     }
 }

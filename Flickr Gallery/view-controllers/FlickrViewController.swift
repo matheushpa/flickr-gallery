@@ -36,7 +36,6 @@ class FlickrViewController: UIViewController {
         collectionView.dataSource = self
         collectionView.showsVerticalScrollIndicator = false
         collectionView.backgroundColor = .white
-        collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.register(PhotoCollectionViewCell.self, forCellWithReuseIdentifier: kPhotoCollectionCellIdentifier)
         return collectionView
     }()

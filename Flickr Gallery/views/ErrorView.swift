@@ -19,50 +19,27 @@ class ErrorView: UIView {
     private var resultIsEmpty: Bool?
     weak var delegate: ErrorViewDelegate?
     
-    private lazy var errorTitleLabel: UILabel = {
-        let label = UILabel()
-        label.textAlignment = .center
-        label.text = kErrorTitle
-        label.font = UIFont(name: kDefaultFont, size: 20)
-        label.textColor = .black
-        label.translatesAutoresizingMaskIntoConstraints = false
+    private lazy var errorTitleLabel: Label = {
+        let label = Label()
+        label.type = TitleLabel(title: kErrorTitle)
         return label
     }()
     
-    private lazy var errorDetailLabel: UILabel = {
-        let label = UILabel()
-        label.textAlignment = .center
-        label.font = UIFont(name: kDefaultFont, size: 14)
-        label.textColor = .black
-        label.numberOfLines = 0 
-        label.translatesAutoresizingMaskIntoConstraints = false
+    private lazy var errorDetailLabel: Label = {
+        let label = Label()
         return label
     }()
     
-    private lazy var tryAgainButton: UIButton = {
-        let button = UIButton(type: .system)
-        button.layer.cornerRadius = 4
-        button.backgroundColor = UIColor.init(netHex: kBlueColor)
-        let buttonAttributedTitle = NSAttributedString(string: kTryAgain,
-                                                       attributes: [
-                                                        NSAttributedString.Key.foregroundColor: UIColor.white,
-                                                        NSAttributedString.Key.font: UIFont(name: kDefaultFont, size: 16) as Any])
-        button.setAttributedTitle(buttonAttributedTitle, for: .normal)
-        button.translatesAutoresizingMaskIntoConstraints = false
+    private lazy var tryAgainButton: Button = {
+        let button = Button(type: .system)
+        button.type = LargeButton(title: kTryAgain)
         button.addTarget(self, action: #selector(refreshSearch), for: .touchUpInside)
         return button
     }()
     
-    private lazy var continueOfflineButton: UIButton = {
-        let button = UIButton(type: .system)
-        button.layer.cornerRadius = 4
-        button.backgroundColor = UIColor.init(netHex: kBlueColor)
-        let buttonAttributedTitle = NSAttributedString(string: kContinueOffline,
-                                                       attributes: [
-                                                        NSAttributedString.Key.foregroundColor: UIColor.white,
-                                                        NSAttributedString.Key.font: UIFont(name: kDefaultFont, size: 16) as Any])
-        button.setAttributedTitle(buttonAttributedTitle, for: .normal)
-        button.translatesAutoresizingMaskIntoConstraints = false
+    private lazy var continueOfflineButton: Button = {
+        let button = Button(type: .system)
+        button.type = LargeButton(title: kContinueOffline)
         button.addTarget(self, action: #selector(continueOffline), for: .touchUpInside)
         return button
     }()
@@ -71,7 +48,6 @@ class ErrorView: UIView {
         let stackView = UIStackView()
         stackView.spacing = 16
         stackView.axis = .vertical
-        stackView.translatesAutoresizingMaskIntoConstraints = false
         return stackView
     }()
     
@@ -106,11 +82,11 @@ class ErrorView: UIView {
                 tryAgainButton.isHidden = false
                 continueOfflineButton.isHidden = true
             }
-            errorDetailLabel.text = description
+            errorDetailLabel.type = DescriptionLabel(title: description)
         } else {
             tryAgainButton.isHidden = false
             continueOfflineButton.isHidden = false
-            errorDetailLabel.text = kNoConnectionDescription
+            errorDetailLabel.type = DescriptionLabel(title: kNoConnectionDescription)
         }
         tryAgainButton.addSize(height: 48)
         continueOfflineButton.addSize(height: 48)

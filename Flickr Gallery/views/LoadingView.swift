@@ -16,7 +16,6 @@ class LoadingView: UIView {
         view.animation = Animation.named("loading", bundle: Bundle.main)
         view.contentMode = .scaleAspectFit
         view.loopMode = .loop
-        view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
     

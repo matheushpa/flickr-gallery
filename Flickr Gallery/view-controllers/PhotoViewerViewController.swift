@@ -13,22 +13,15 @@ class PhotoViewerViewController: UIViewController {
     
     var imageURL = ""
     
-    private lazy var photoImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.contentMode = .scaleAspectFit
-        imageView.translatesAutoresizingMaskIntoConstraints = false
+    private lazy var photoImageView: ImageView = {
+        let imageView = ImageView()
+        imageView.type = PhotoViewerImageView(url: imageURL)
         return imageView
     }()
 
-    private lazy var closeButton: UIButton = {
-        let button = UIButton(type: .system)
-        button.layer.cornerRadius = 4
-        let buttonAttributedTitle = NSAttributedString(string: kClose,
-                                                       attributes: [
-                                                        NSAttributedString.Key.foregroundColor: UIColor.init(netHex: kBlueColor),
-                                                        NSAttributedString.Key.font: UIFont(name: kDefaultFont, size: 16) as Any])
-        button.setAttributedTitle(buttonAttributedTitle, for: .normal)
-        button.translatesAutoresizingMaskIntoConstraints = false
+    private lazy var closeButton: Button = {
+        let button = Button(type: .system)
+        button.type = DefaultButton(title: kClose)
         button.addTarget(self, action: #selector(closePhoto), for: .touchUpInside)
         return button
     }()
@@ -45,8 +38,6 @@ class PhotoViewerViewController: UIViewController {
     func setupPhotoImageView() {
         view.addSubview(photoImageView)
         photoImageView.fillSuperview()
-        photoImageView.sd_setImage(with: URL(string: imageURL),
-                                   placeholderImage: UIImage(named: "placeholder"))
     }
     
     func setupCloseButton() {
