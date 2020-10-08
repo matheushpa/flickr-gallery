@@ -25,6 +25,7 @@ extension UIView {
     }
     
     func centerView() {
+        translatesAutoresizingMaskIntoConstraints = false
         if let centerHorizontally = superview?.centerXAnchor {
             centerXAnchor.constraint(equalTo: centerHorizontally).isActive = true
         }
