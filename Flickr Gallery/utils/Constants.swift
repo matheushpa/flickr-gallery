@@ -24,7 +24,9 @@ let kBlueColor = 0x0048C9
 
 // MARK: - Fonts
 
-let kDefaultFont = "HelveticaNeue"
+let kLight = "Montserrat-Light"
+let kMedium = "Montserrat-Medium"
+let kSemiBold = "Montserrat-SemiBold"
 
 // MARK: - Labels
 

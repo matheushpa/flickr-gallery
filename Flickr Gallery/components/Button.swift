@@ -20,7 +20,7 @@ protocol ButtonProperties {
 struct DefaultButton: ButtonProperties {
 
     var tintColor: UIColor = UIColor.init(netHex: kBlueColor)
-    var font: UIFont = UIFont(name: kDefaultFont, size: 16) ?? UIFont.systemFont(ofSize: 16)
+    var font: UIFont = UIFont(name: kMedium, size: 16) ?? UIFont.systemFont(ofSize: 16)
     var backgroundColor: UIColor = .clear
     var cornerRadius: CGFloat = 0
     var text: NSAttributedString
@@ -36,7 +36,7 @@ struct DefaultButton: ButtonProperties {
 struct LargeButton: ButtonProperties {
     
     var tintColor: UIColor = UIColor.white
-    var font: UIFont = UIFont(name: kDefaultFont, size: 16) ?? UIFont.systemFont(ofSize: 16)
+    var font: UIFont = UIFont(name: kMedium, size: 16) ?? UIFont.systemFont(ofSize: 16)
     var backgroundColor: UIColor = UIColor.init(netHex: kBlueColor)
     var cornerRadius: CGFloat = 4
     var text: NSAttributedString

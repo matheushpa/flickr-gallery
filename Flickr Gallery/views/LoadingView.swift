@@ -32,7 +32,7 @@ class LoadingView: UIView {
     // MARK: - Setop methods
     
     func setupLoadingAnimation() {
-        self.addSubview(lottieAnimation)
+        self.addSubviews(lottieAnimation)
         lottieAnimation.addSize(width: 100, height: 100)
         lottieAnimation.centerView()
         lottieAnimation.play()

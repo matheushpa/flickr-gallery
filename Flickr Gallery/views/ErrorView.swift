@@ -21,13 +21,14 @@ class ErrorView: UIView {
     
     private lazy var errorTitleLabel: Label = {
         let label = Label()
-        label.type = TitleLabel(title: kErrorTitle)
+        label.type = SemiBoldLabel(title: kErrorTitle)
         return label
     }()
     
     private lazy var errorDetailLabel: Label = {
-        let label = Label()
-        return label
+        let errorDetailLabel = Label()
+        errorDetailLabel.type = MediumLabel(title: "")
+        return errorDetailLabel
     }()
     
     private lazy var tryAgainButton: Button = {
@@ -44,10 +45,9 @@ class ErrorView: UIView {
         return button
     }()
     
-    private lazy var stackView: UIStackView = {
-        let stackView = UIStackView()
-        stackView.spacing = 16
-        stackView.axis = .vertical
+    private lazy var stackView: StackView = {
+        let stackView = StackView()
+        stackView.type = VerticalStackView()
         return stackView
     }()
     
@@ -66,27 +66,28 @@ class ErrorView: UIView {
     // MARK: - Setup methods
     
     func setupViews() {
-        self.addSubview(stackView)
-        stackView.addArrangedSubviews(errorTitleLabel, errorDetailLabel, tryAgainButton, continueOfflineButton)
+        self.addSubviews(stackView)
+        stackView.addArrangedSubviews(errorTitleLabel,
+                                      errorDetailLabel,
+                                      tryAgainButton,
+                                      continueOfflineButton)
     }
     
     func setupLayouts() {
         if connectionIsOn {
-            var description = ""
             if resultIsEmpty != nil, resultIsEmpty == true {
-                description = kEmptyResults
+                errorDetailLabel.text = kEmptyResults
                 tryAgainButton.isHidden = true
                 continueOfflineButton.isHidden = true
             } else {
-                description = kErrorDescription
+                errorDetailLabel.text = kErrorDescription
                 tryAgainButton.isHidden = false
                 continueOfflineButton.isHidden = true
             }
-            errorDetailLabel.type = DescriptionLabel(title: description)
         } else {
             tryAgainButton.isHidden = false
             continueOfflineButton.isHidden = false
-            errorDetailLabel.type = DescriptionLabel(title: kNoConnectionDescription)
+            errorDetailLabel.text = kNoConnectionDescription
         }
         tryAgainButton.addSize(height: 48)
         continueOfflineButton.addSize(height: 48)

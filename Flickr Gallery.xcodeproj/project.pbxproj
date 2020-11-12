@@ -20,6 +20,12 @@
 		2F4BE704252FACF6004D55BD /* Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4BE703252FACF6004D55BD /* Label.swift */; };
 		2F4BE705252FACF6004D55BD /* Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4BE703252FACF6004D55BD /* Label.swift */; };
 		2F4BE706252FACF6004D55BD /* Label.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4BE703252FACF6004D55BD /* Label.swift */; };
+		2F4BE70B252FD148004D55BD /* StackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4BE70A252FD148004D55BD /* StackView.swift */; };
+		2F4BE70C252FD148004D55BD /* StackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4BE70A252FD148004D55BD /* StackView.swift */; };
+		2F4BE70D252FD148004D55BD /* StackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4BE70A252FD148004D55BD /* StackView.swift */; };
+		2F4BE7132535E294004D55BD /* CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4BE7122535E293004D55BD /* CollectionView.swift */; };
+		2F4BE7142535E294004D55BD /* CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4BE7122535E293004D55BD /* CollectionView.swift */; };
+		2F4BE7152535E294004D55BD /* CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4BE7122535E293004D55BD /* CollectionView.swift */; };
 		2F7953CA251000C100220D0D /* Photos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F7953C9251000C100220D0D /* Photos.swift */; };
 		2F7953CB251000C100220D0D /* Photos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F7953C9251000C100220D0D /* Photos.swift */; };
 		2F7953CC251000C100220D0D /* Photos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F7953C9251000C100220D0D /* Photos.swift */; };
@@ -50,6 +56,15 @@
 		2F7953FB2510EDF400220D0D /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F7953FA2510EDF400220D0D /* PhotoCollectionViewCell.swift */; };
 		2F7953FC2510EDF400220D0D /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F7953FA2510EDF400220D0D /* PhotoCollectionViewCell.swift */; };
 		2F7953FD2510EDF400220D0D /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F7953FA2510EDF400220D0D /* PhotoCollectionViewCell.swift */; };
+		2F8B3AA1255D71D7008D5B1B /* Montserrat-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2F8B3A9E255D71D6008D5B1B /* Montserrat-Medium.ttf */; };
+		2F8B3AA2255D71D7008D5B1B /* Montserrat-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2F8B3A9E255D71D6008D5B1B /* Montserrat-Medium.ttf */; };
+		2F8B3AA3255D71D7008D5B1B /* Montserrat-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2F8B3A9E255D71D6008D5B1B /* Montserrat-Medium.ttf */; };
+		2F8B3AA4255D71D7008D5B1B /* Montserrat-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2F8B3A9F255D71D6008D5B1B /* Montserrat-Light.ttf */; };
+		2F8B3AA5255D71D7008D5B1B /* Montserrat-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2F8B3A9F255D71D6008D5B1B /* Montserrat-Light.ttf */; };
+		2F8B3AA6255D71D7008D5B1B /* Montserrat-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2F8B3A9F255D71D6008D5B1B /* Montserrat-Light.ttf */; };
+		2F8B3AA7255D71D7008D5B1B /* Montserrat-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2F8B3AA0255D71D6008D5B1B /* Montserrat-SemiBold.ttf */; };
+		2F8B3AA8255D71D7008D5B1B /* Montserrat-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2F8B3AA0255D71D6008D5B1B /* Montserrat-SemiBold.ttf */; };
+		2F8B3AA9255D71D7008D5B1B /* Montserrat-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2F8B3AA0255D71D6008D5B1B /* Montserrat-SemiBold.ttf */; };
 		2FC19E08250FBB9300D205F8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC19E07250FBB9300D205F8 /* AppDelegate.swift */; };
 		2FC19E0A250FBB9300D205F8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC19E09250FBB9300D205F8 /* SceneDelegate.swift */; };
 		2FC19E11250FBBA200D205F8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2FC19E10250FBBA200D205F8 /* Assets.xcassets */; };
@@ -107,6 +122,8 @@
 		2F4BE6F2252F581E004D55BD /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
 		2F4BE6FC252F85C5004D55BD /* ImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageView.swift; sourceTree = "<group>"; };
 		2F4BE703252FACF6004D55BD /* Label.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Label.swift; sourceTree = "<group>"; };
+		2F4BE70A252FD148004D55BD /* StackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackView.swift; sourceTree = "<group>"; };
+		2F4BE7122535E293004D55BD /* CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionView.swift; sourceTree = "<group>"; };
 		2F7953C9251000C100220D0D /* Photos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photos.swift; sourceTree = "<group>"; };
 		2F7953D2251005D200220D0D /* JSONDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONDecoder.swift; sourceTree = "<group>"; };
 		2F7953D6251006D900220D0D /* FlickrAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlickrAPI.swift; sourceTree = "<group>"; };
@@ -117,6 +134,9 @@
 		2F7953F0251037E500220D0D /* PhotosService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosService.swift; sourceTree = "<group>"; };
 		2F7953F525103DE300220D0D /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		2F7953FA2510EDF400220D0D /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewCell.swift; sourceTree = "<group>"; };
+		2F8B3A9E255D71D6008D5B1B /* Montserrat-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Medium.ttf"; sourceTree = "<group>"; };
+		2F8B3A9F255D71D6008D5B1B /* Montserrat-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Light.ttf"; sourceTree = "<group>"; };
+		2F8B3AA0255D71D6008D5B1B /* Montserrat-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-SemiBold.ttf"; sourceTree = "<group>"; };
 		2FC19E04250FBB9300D205F8 /* Flickr Gallery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Flickr Gallery.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2FC19E07250FBB9300D205F8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2FC19E09250FBB9300D205F8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -175,8 +195,10 @@
 			isa = PBXGroup;
 			children = (
 				2F4BE6F2252F581E004D55BD /* Button.swift */,
+				2F4BE7122535E293004D55BD /* CollectionView.swift */,
 				2F4BE6FC252F85C5004D55BD /* ImageView.swift */,
 				2F4BE703252FACF6004D55BD /* Label.swift */,
+				2F4BE70A252FD148004D55BD /* StackView.swift */,
 			);
 			path = components;
 			sourceTree = "<group>";
@@ -225,6 +247,16 @@
 				2FCEF2D5251109BF00D1D98F /* UIColors+Extensions.swift */,
 			);
 			path = utils;
+			sourceTree = "<group>";
+		};
+		2F8B3AB0255D71DC008D5B1B /* fonts */ = {
+			isa = PBXGroup;
+			children = (
+				2F8B3A9F255D71D6008D5B1B /* Montserrat-Light.ttf */,
+				2F8B3A9E255D71D6008D5B1B /* Montserrat-Medium.ttf */,
+				2F8B3AA0255D71D6008D5B1B /* Montserrat-SemiBold.ttf */,
+			);
+			path = fonts;
 			sourceTree = "<group>";
 		};
 		2FC19DFB250FBB9300D205F8 = {
@@ -303,6 +335,7 @@
 				2FC19E10250FBBA200D205F8 /* Assets.xcassets */,
 				2FC19E12250FBBA200D205F8 /* LaunchScreen.storyboard */,
 				2FCEF2CD2510F91100D1D98F /* loading.json */,
+				2F8B3AB0255D71DC008D5B1B /* fonts */,
 			);
 			path = resources;
 			sourceTree = "<group>";
@@ -449,8 +482,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2F8B3AA7255D71D7008D5B1B /* Montserrat-SemiBold.ttf in Resources */,
+				2F8B3AA4255D71D7008D5B1B /* Montserrat-Light.ttf in Resources */,
 				2FC19E14250FBBA200D205F8 /* LaunchScreen.storyboard in Resources */,
 				2FCEF2CE2510F91100D1D98F /* loading.json in Resources */,
+				2F8B3AA1255D71D7008D5B1B /* Montserrat-Medium.ttf in Resources */,
 				2FC19E11250FBBA200D205F8 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -459,6 +495,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2F8B3AA5255D71D7008D5B1B /* Montserrat-Light.ttf in Resources */,
+				2F8B3AA2255D71D7008D5B1B /* Montserrat-Medium.ttf in Resources */,
+				2F8B3AA8255D71D7008D5B1B /* Montserrat-SemiBold.ttf in Resources */,
 				2FCEF2CF2510F91100D1D98F /* loading.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -467,6 +506,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2F8B3AA6255D71D7008D5B1B /* Montserrat-Light.ttf in Resources */,
+				2F8B3AA3255D71D7008D5B1B /* Montserrat-Medium.ttf in Resources */,
+				2F8B3AA9255D71D7008D5B1B /* Montserrat-SemiBold.ttf in Resources */,
 				2FCEF2D02510F91100D1D98F /* loading.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -603,6 +645,8 @@
 				2F7953D7251006D900220D0D /* FlickrAPI.swift in Sources */,
 				2F4AF25F2512BE3000141794 /* PhotoViewerViewController.swift in Sources */,
 				2F4BE704252FACF6004D55BD /* Label.swift in Sources */,
+				2F4BE70B252FD148004D55BD /* StackView.swift in Sources */,
+				2F4BE7132535E294004D55BD /* CollectionView.swift in Sources */,
 				2FCEF2DA251172A800D1D98F /* MainNavigationViewController.swift in Sources */,
 				2F7953CA251000C100220D0D /* Photos.swift in Sources */,
 				2FC19E08250FBB9300D205F8 /* AppDelegate.swift in Sources */,
@@ -628,8 +672,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				2F4BE6FE252F85C5004D55BD /* ImageView.swift in Sources */,
+				2F4BE70C252FD148004D55BD /* StackView.swift in Sources */,
 				2F7953CB251000C100220D0D /* Photos.swift in Sources */,
 				2FCEF2DB251172A800D1D98F /* MainNavigationViewController.swift in Sources */,
+				2F4BE7142535E294004D55BD /* CollectionView.swift in Sources */,
 				2F7953FC2510EDF400220D0D /* PhotoCollectionViewCell.swift in Sources */,
 				2F7953EE25102B1500220D0D /* PhotoSizes.swift in Sources */,
 				2F4BE705252FACF6004D55BD /* Label.swift in Sources */,
@@ -656,8 +702,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				2F4BE6FF252F85C5004D55BD /* ImageView.swift in Sources */,
+				2F4BE70D252FD148004D55BD /* StackView.swift in Sources */,
 				2F7953CC251000C100220D0D /* Photos.swift in Sources */,
 				2FCEF2DC251172A800D1D98F /* MainNavigationViewController.swift in Sources */,
+				2F4BE7152535E294004D55BD /* CollectionView.swift in Sources */,
 				2F7953FD2510EDF400220D0D /* PhotoCollectionViewCell.swift in Sources */,
 				2F7953EF25102B1500220D0D /* PhotoSizes.swift in Sources */,
 				2F4BE706252FACF6004D55BD /* Label.swift in Sources */,

@@ -14,8 +14,16 @@ extension UIView {
     
     func addSubviews(_ views: UIView...) {
         for view in views {
+            view.translatesAutoresizingMaskIntoConstraints = false
             addSubview(view)
         }
+    }
+    
+    func roundCorners(corners: UIRectCorner, radius: CGFloat) {
+        let path = UIBezierPath(roundedRect: bounds, byRoundingCorners: corners, cornerRadii: CGSize(width: radius, height: radius))
+        let mask = CAShapeLayer()
+        mask.path = path.cgPath
+        layer.mask = mask
     }
     
     // MARK: - Constraints
@@ -25,7 +33,6 @@ extension UIView {
     }
     
     func centerView() {
-        translatesAutoresizingMaskIntoConstraints = false
         if let centerHorizontally = superview?.centerXAnchor {
             centerXAnchor.constraint(equalTo: centerHorizontally).isActive = true
         }
@@ -44,7 +51,6 @@ extension UIView {
     }
     
     func anchor(top: NSLayoutYAxisAnchor? = nil, leading: NSLayoutXAxisAnchor? = nil, bottom: NSLayoutYAxisAnchor? = nil, trailing: NSLayoutXAxisAnchor? = nil, padding: UIEdgeInsets = .zero) {
-        translatesAutoresizingMaskIntoConstraints = false
         if let top = top {
             topAnchor.constraint(equalTo: top, constant: padding.top).isActive = true
         }
@@ -64,6 +70,7 @@ extension UIStackView {
     
     func addArrangedSubviews(_ views: UIView...) {
         for view in views {
+            view.translatesAutoresizingMaskIntoConstraints = false
             addArrangedSubview(view)
         }
     }

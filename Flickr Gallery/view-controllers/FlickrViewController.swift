@@ -52,14 +52,14 @@ class FlickrViewController: UIViewController {
     // MARK: - Setup methods
     
     func setupCollectionViewLayout() {
-        view.addSubview(collectionView)
+        view.addSubviews(collectionView)
         collectionView.fillSuperview()
     }
     
     func setupLoadingView() {
         loadingView = LoadingView(frame: .zero)
         loadingView.backgroundColor = .white
-        view.addSubview(loadingView)
+        view.addSubviews(loadingView)
         loadingView.fillSuperview()
     }
     
@@ -84,7 +84,7 @@ class FlickrViewController: UIViewController {
         }
         errorView.backgroundColor = .white
         errorView.delegate = self
-        view.addSubview(errorView)
+        view.addSubviews(errorView)
         errorView.fillSuperview()
     }
 }
