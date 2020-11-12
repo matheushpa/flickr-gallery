@@ -28,7 +28,7 @@ class PhotoCollectionViewCell: UICollectionViewCell {
     // MARK: - Setup methods
     
     func setupPhotoImageView() {
-        self.addSubview(photoImageView)
+        self.addSubviews(photoImageView)
         photoImageView.fillSuperview()
     }
     

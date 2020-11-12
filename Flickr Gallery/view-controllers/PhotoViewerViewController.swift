@@ -36,12 +36,12 @@ class PhotoViewerViewController: UIViewController {
     // MARK: - Setup methods
     
     func setupPhotoImageView() {
-        view.addSubview(photoImageView)
+        view.addSubviews(photoImageView)
         photoImageView.fillSuperview()
     }
     
     func setupCloseButton() {
-        view.addSubview(closeButton)
+        view.addSubviews(closeButton)
         closeButton.anchor(top: view.topAnchor,
                            trailing: view.trailingAnchor,
                            padding: UIEdgeInsets(top: 16,
